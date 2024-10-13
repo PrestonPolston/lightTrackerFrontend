@@ -1,8 +1,12 @@
-# React + Vite
+# lightTrackerFrontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+This repository will serve as the front-end for my **LightTracker** application. It is built using **React** to create an engaging user interface and will communicate with the backend developed in Node.js.
 
-Currently, two official plugins are available:
+## Technologies
+This front-end will be built using the following technologies:
+- **React** <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React" width="60" />
+- **Node.js** <img src="https://nodejs.org/static/images/logo.svg" alt="Node.js" width="40" />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Design Concepts
+You can find the design concepts and user flows for the front end here: [View Figma Concepts](https://www.figma.com/board/oKUfEGiBStwHzBbx3sfdTl/lightTrakr?node-id=0-1&t=RfA21dsQ0pbPwEjy-1)

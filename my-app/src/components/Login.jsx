@@ -1,26 +1,42 @@
 import { useState } from "react";
+import { useLoginUserMutation } from "../api/lightTrackr";
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const handleSubmit = (event) => {
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
+
+  // Use the login mutation
+  const [loginUser] = useLoginUserMutation();
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    //test to see if form will log info to console
-    console.log("Email: ", email);
-    console.log("Password: ", password);
+    try {
+      const response = await loginUser(formData).unwrap();
+      console.log("Login successful", response);
+      navigate("/getUsers");
+    } catch (error) {
+      console.error("Login failed", error);
+    }
   };
 
   return (
     <>
-      <form className="loginForm">
+      <form className="loginForm" onSubmit={handleSubmit}>
         <h1>Login</h1>
         <div>
           <label htmlFor="email">Email: </label>
           <input
             type="text"
             name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={formData.email}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -28,15 +44,16 @@ const Login = () => {
           <input
             type="password"
             name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={formData.password}
+            onChange={handleChange}
           />
         </div>
         <div>
-          <input type="submit" onClick={handleSubmit} value={"Login"} />
+          <input type="submit" value={"Login"} />
         </div>
       </form>
     </>
   );
 };
+
 export default Login;

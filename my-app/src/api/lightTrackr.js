@@ -7,7 +7,14 @@ export const lightApi = createApi({
     getUser: builder.query({
       query: () => "/auth/users",
     }),
+    loginUser: builder.mutation({
+      query: (userData) => ({
+        url: "/auth/users/login",
+        method: "POST",
+        body: userData,
+      }),
+    }),
   }),
 });
 
-export const { useGetUserQuery } = lightApi;
+export const { useGetUserQuery, useLoginUserMutation } = lightApi;

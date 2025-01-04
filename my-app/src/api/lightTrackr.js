@@ -14,7 +14,15 @@ export const lightApi = createApi({
         body: userData,
       }),
     }),
+    createUser: builder.mutation({
+      query: (userData) => ({
+        url: "/auth/users",
+        method: "POST",
+        body: userData,
+      }),
+    }),
   }),
 });
 
-export const { useGetUserQuery, useLoginUserMutation } = lightApi;
+export const { useGetUserQuery, useLoginUserMutation, useCreateUserMutation } =
+  lightApi;

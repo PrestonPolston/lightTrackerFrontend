@@ -50,6 +50,11 @@ const Login = () => {
         </div>
         <div>
           <input type="submit" value={"Login"} />
+          <input
+            type="submit"
+            value={"Create Account"}
+            onClick={navigate("/createAccount")}
+          />
         </div>
       </form>
     </>
